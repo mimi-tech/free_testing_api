@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 (async () => {
   mongoose
     .connect(process.env.DATABASE_URL, {
-      useNewUrlParser: true,
+      //useNewUrlParser: true,
       // useCreateIndex: true,
       // useFindAndModify: false,
-      useUnifiedTopology: true,
+      //useUnifiedTopology: true,
     })
     .then(() => console.log("Local DB Connection Successful!")).catch((error) => console.log(error));
 })();
