@@ -2,10 +2,8 @@
 //const { v4: uuid } = require("uuid");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const admin = require("firebase-admin");
 const { constants } = require("../configs");
 const { usersAccount, favourites, cart } = require("../models");
-const { generalHelperFunctions } = require("../helpers");
 /**
  * Display welcome text
  * @param {Object} params  no params.
@@ -109,7 +107,9 @@ const welcomeText = async () => {
       data: publicData,
     };
   } catch (error) {
+    console.log(error);
     return {
+    
       status: false,
       message: constants.SERVER_ERROR("CREATING ACCOUNT"),
     };
@@ -512,7 +512,7 @@ const publicData = {
       user.addToCount -= 1;
       user.save();
       return {
-        status: false,
+        status: true,
         message: "Product removed from cart",
       };
     }
